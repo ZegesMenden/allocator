@@ -6,11 +6,23 @@ int main() {
 
     void* hbase = malloc(__heap_n_sectors*__heap_sector_alignment);
 
-    alloc_init(hbase);
+    memalloc(hbase);
 
-    char* test_ptr = (char*)alloc(300);
+    char* test_ptr = (char*)memalloc(100);
+    char* test1_ptr = (char*)memalloc(300);
+    char* test2_ptr = (char*)memalloc(100);
+    char* test3_ptr = (char*)memalloc(300);
+    char* test4_ptr = (char*)memalloc(600);
+
+    memfree(test3_ptr);
+    memfree(test4_ptr);
+    memfree(test4_ptr);
+
+    memprint();
+
 
     free(hbase);
+
 
     return 0;
 
