@@ -1,5 +1,5 @@
-#ifndef ALLOC_H
-#define ALLOC_H
+#ifndef ALLOC_V1_H
+#define ALLOC_V1_H
 
 #define allocator_debug_enable
 
