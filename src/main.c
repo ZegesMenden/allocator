@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "include/allocator.h"
+#include "include/allocator_v2.h"
 
 int main() {
 
-    void* hbase = malloc(__heap_n_sectors*__heap_sector_alignment);
+    void* hbase = malloc(2048);
 
-    memalloc(hbase);
+    memalloc_init(hbase, 2048);
 
-    char* test_ptr = (char*)memalloc(100);
+    char* test0_ptr = (char*)memalloc(100);
     char* test1_ptr = (char*)memalloc(300);
     char* test2_ptr = (char*)memalloc(100);
     char* test3_ptr = (char*)memalloc(300);
@@ -19,7 +19,6 @@ int main() {
     memfree(test4_ptr);
 
     memprint();
-
 
     free(hbase);
 
